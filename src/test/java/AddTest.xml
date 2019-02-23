@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="CSVAddTestSuite">
+    <test name="CSVAddTest">
+        <parameter name="fileName" value="src/main/resources/AddTest.csv"/>
+        <classes>
+            <class name="nde.create.TestRunner"/>
+        </classes>
+    </test>
+</suite>
