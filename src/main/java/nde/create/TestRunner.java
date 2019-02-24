@@ -36,10 +36,7 @@ public class TestRunner {
     }
 
     private Object addTest(String[] tokens){
-        return new AddTest(tokens[0],
-                Integer.parseInt(tokens[2]),
-                Integer.parseInt(tokens[3]),
-                Integer.parseInt(tokens[4]));
+        return new AddTest(tokens);
     }
 
     @Factory

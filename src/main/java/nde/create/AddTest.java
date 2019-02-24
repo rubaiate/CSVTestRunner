@@ -1,29 +1,17 @@
 package nde.create;
 
 import org.testng.Assert;
-import org.testng.ITest;
 import org.testng.annotations.Test;
 
-public class AddTest implements ITest {
-    private int param1;
-    private int param2;
-    private int result;
-    private String testName;
+public class AddTest extends Action {
 
-    public AddTest(String testName, int param1, int param2, int result){
-        this.testName = testName;
-        this.param1 = param1;
-        this.param2 = param2;
-        this.result = result;
+    public AddTest(String[] actionData) {
+        super(actionData);
     }
 
     @Test
     public void test(){
-        Assert.assertEquals(result, param1 + param2);
+        Assert.assertEquals(getIntParam(2) , getIntParam(0) + getIntParam(1) );
     }
 
-    @Override
-    public String getTestName() {
-        return testName;
-    }
 }
