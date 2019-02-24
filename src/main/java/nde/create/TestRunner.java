@@ -1,8 +1,10 @@
 package nde.create;
 
 import com.opencsv.CSVReader;
+import nde.create.exception.TestFileNotFoundException;
 import org.testng.ITest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 
@@ -11,18 +13,26 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TestRunner {
-    @BeforeClass
+    private Object[] tests;
+    private Throwable error = null;
+    @BeforeSuite
+    public void validateLoadup() throws Throwable {
+        if(error != null){
+            throw error;
+        }
+    }
+
     private Object[] loadTestsFromCSV(String filePath){
         try(FileReader fileReader = new FileReader(filePath)){
             CSVReader csvReader = new CSVReader(fileReader);
             return csvReader.readAll().stream().map(this::addTest).toArray();
         }
         catch (FileNotFoundException e) {
-            e.printStackTrace();
+            error = new TestFileNotFoundException(filePath, e);
         } catch (IOException e) {
-            e.printStackTrace();
+            error = e;
         }
-        return null;
+        return new Object[0];
     }
 
     private Object addTest(String[] tokens){
@@ -34,7 +44,8 @@ public class TestRunner {
 
     @Factory
     @Parameters({ "filePath" })
-    public Object[] createTests(String filePath) {
-        return loadTestsFromCSV(filePath);
+    public Object[] createTests(String filePath){
+        tests = loadTestsFromCSV(filePath);
+        return tests;
     }
 }
