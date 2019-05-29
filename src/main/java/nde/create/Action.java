@@ -6,6 +6,7 @@ public abstract class Action implements ITest {
     private String id;
     private String[] actionData;
 
+    public Action(){}
 
     private String actionName;
     public Action(String[] actionData){
@@ -32,7 +33,9 @@ public abstract class Action implements ITest {
     }
 
     public String getActionName() {
+        System.out.println("GetActionName");
         return actionName;
     }
 
+    public abstract Action createAction(String[] actionData);
 }

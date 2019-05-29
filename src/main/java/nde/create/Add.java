@@ -3,19 +3,19 @@ package nde.create;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddTest extends Action {
+public class Add extends Action {
 
-    public AddTest(){
+    public Add(){
         super();
     }
 
-    public AddTest(String[] actionData) {
+    public Add(String[] actionData) {
         super(actionData);
     }
 
     @Override
     public Action createAction(String[] actionData) {
-        return new AddTest(actionData);
+        return new Add(actionData);
     }
 
     @Test

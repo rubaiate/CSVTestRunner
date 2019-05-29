@@ -3,24 +3,24 @@ package nde.create;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddTest extends Action {
+public class Subtract extends Action {
 
-    public AddTest(){
+    public Subtract(){
         super();
     }
 
-    public AddTest(String[] actionData) {
+    public Subtract(String[] actionData) {
         super(actionData);
     }
 
     @Override
     public Action createAction(String[] actionData) {
-        return new AddTest(actionData);
+        return new Subtract(actionData);
     }
 
     @Test
     public void test(){
-        Assert.assertEquals(getIntParam(2) , getIntParam(0) + getIntParam(1) );
+        Assert.assertEquals(getIntParam(2) , getIntParam(0) - getIntParam(1) );
     }
 
 }
