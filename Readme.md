@@ -52,6 +52,43 @@ Intellij will show green play button next to 'hello' function. Just click it.
 
 ![Run button](images/BasicTest.PNG)
 
+#### Basic Param Test Array
+Going bit forward we will parameterize BasicTest as BasicParamTest and make array of them
+```java
+public class BasicParamTest {
+    private int testId;
+    public BasicParamTest(int testId){
+        this.testId = testId;
+    }
+    @Test
+    public void hello(){
+        System.out.println("Hello Test " + testId);
+    }
+}
+```
+Ok. We have parameterized test.  
+So how can we run array of them?  
+The answer is testNg **@Factory** annotation.
+
+```
+public class BasicParamTestArray {
+    @Factory
+    public Object[] testArray(){
+        int testCount = 5;
+        BasicParamTest[] tests = new BasicParamTest[testCount];
+        for(int testId = 0; testId < testCount; testId++){
+            tests[testId] = new BasicParamTest(testId);
+        }
+
+        return tests;
+    }
+}
+```
+
+![Basic Param Test Factory Run](images/BasicParamTestFactoryRun.PNG)  
+You may see some peculiarities. We will address them later. For now we ran **"Test Array"**.
+
+
 You are running first TestNG test case.
 Next step is running given test case programmatically. Now it is bit advance. 
 When function is annotated with @Factories, TestNG expects the function to return Test class array

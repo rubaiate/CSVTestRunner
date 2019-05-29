@@ -1,4 +1,4 @@
-package nde.create;
+package nde.basic;
 
 import org.testng.annotations.Test;
 
