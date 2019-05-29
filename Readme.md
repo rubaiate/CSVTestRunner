@@ -16,17 +16,17 @@ We can validate "Add" functionality with many test cases - for different inputs 
 #### Specification
 In this project test cases are defined in a csv file.
 
-Format of test csv
-ID|ACTION|SKIP|PARAM-1|PARAM-2....|PARAM-N
+###### Format of test csv
+ID|ACTION|PARAM-1|PARAM-2....|PARAM-N
 
-ID 					- unique id for the test
-ACTION				- name of the test
-PARAM-1..PARAM-N 	- parameters
+| ID               | unique id for the test |
+|:---              |:-----------------------|
+| ACTION           | name of the test       |
+| PARAM-1..PARAM-N | parameters             |
 
-Ex
 We are going to test addition function using the test framework.
 
-1,Add,1,5,6
+###### 1,Add,1,5,6
 
 So we are validating Add function which should return 6 after adding 1 and 5.
 
@@ -34,14 +34,25 @@ So we are validating Add function which should return 6 after adding 1 and 5.
 The project can be implemented without using and an IDE. But I prefer using an IDE since visual aspects provide more insight into development.
 I am a fan of Intellij and the IDE integrates really well with TestNG. So Intellij is my default choice in this project.
 
-Create maven project in intellij
+[Create maven project in intellij](https://www.jetbrains.com/help/idea/maven-support.html#create_new_maven_project)
 
-
-#### @Test and @Factories 
+#### @Test
 @Test is the basic annotation for defining test case in TestNG(and in junit). 
-You can annotate function with @Test. Intellij will show green play button next to function. Just click it. 
-You are running first TestNG test case.
+You can annotate function with @Test. 
 
+```java
+public class BasicTest {
+    @Test
+    public void hello(){
+        System.out.println("Hello World");
+    }
+}
+```
+Intellij will show green play button next to 'hello' function. Just click it. 
+
+![Run button](images/BasicTest.PNG)
+
+You are running first TestNG test case.
 Next step is running given test case programmatically. Now it is bit advance. 
 When function is annotated with @Factories, TestNG expects the function to return Test class array
 
