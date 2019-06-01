@@ -28,7 +28,7 @@ ID|ACTION|PARAM-1|PARAM-2....|PARAM-N
 
 So we are validating Add function which should return 6 after adding 1 and 5.
 
-#### By following this tutorial you would know,
+### By following this tutorial you would know,
 1. How to run testNg tests
 1. How to run testNg tests programmatically
 1. How to load dynamic tests from other sources and run them
