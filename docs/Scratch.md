@@ -1,3 +1,16 @@
+
+You are running first TestNG test case.
+Next step is running given test case programmatically. Now it is bit advance. 
+When function is annotated with @Factories, TestNG expects the function to return Test class array
+
+Now test can be executed using green fast forward button. So it is possible to run test case programmatically;
+So implementation is working fine. But in IDE you can see test name is ugly 
+
+Provide test case name
+The add test class should be derived from ITest interface and getTestName should be implemented. Now it is possible to pass custom test name;
+
+passing test data from csv file is very easy. 
+
 Parsing test file name
 @Parameter annotation is introduced to configure csv file name. Now when you run using green button you will encounter following error.
 "Parameter 'filePath' is required by @Test on method createTests but has not been marked @Optional or defined"
